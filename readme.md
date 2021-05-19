@@ -21,7 +21,7 @@
 * docker build --tag warungmakan:1.0
 * docker container create --name app1 -p 8000:8000 warungmakan:1.0
 * docker container start app1
-* open your favorite browser and type _localhost:8000_
+* open your favorite browser and typing _localhost:8000_
 
 ### Thank You
 * Build by Theis Andatu
