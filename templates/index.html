@@ -1,0 +1,83 @@
+{% extends "snippets/base.html" %}
+{% load static %}
+
+{% block navbar %}
+<div id="Header">
+  <h1 class="text-center mt-3">Web Kasir Restoran</h1>
+  <h4 class="text-center mb-4 text-primary">Django From Python</h4>
+</div>
+
+<nav class="navbar navbar-expand-lg navbar-ligth bg-white">
+    <div class="collapse navbar-collapse shadow p-3 mb-5 bg-white rounded" id="navbarNavAltMarkup">
+      <div class="navbar-nav">
+        {% for link,name in nav %}
+            <a class="nav-item nav-link text-dark" href="{{ link }}">
+              <i class="fa fa-home" aria-hidden="true"></i> Home
+            </a>
+        {% endfor %}
+      </div>
+      <div class="navbar-nav ml-auto">
+        <a class="nav-item nav-link text-dark" href="{{ link }}">
+            <i class="fa fa-shopping-cart" aria-hidden="true"></i>
+        </a>
+        <p class="mt-2"> &nbsp; | &nbsp;  Hi, Theis </p>
+        <a class="nav-item nav-link text-dark" href="/admin">
+            <i class="fa fa-user" aria-hidden="true"></i>
+        </a>
+      </div>
+    </div>
+  </nav>
+{% endblock %}
+
+{% block content %}
+<section style="margin-bottom: 20%;">
+  <div class="text-center mt-3 mb-3">
+    <h3 class="mb-4">Menu</h3>
+    <button type="button" class="btn btn-outline-primary">All Menu</button>
+    <button type="button" class="btn btn-outline-primary">Food</button>
+    <button type="button" class="btn btn-outline-primary">Drink</button>
+  </div>
+  <div class="col-6 mb-5" style="margin-left: 7%;">
+    <form class="form-inline my-2 my-lg-0">
+        <input class="form-control mr-sm-1 col-5" type="search" placeholder="Search" aria-label="Search">
+        <button class="btn btn-outline-primary my-2 my-sm-0 mr-4" type="submit">Go</button>
+    </form>
+  </div>
+  <div class="row" style="margin-left: 8%;">
+    {% for menu in menuMakanan %}
+        <div class="card mr-5 mb-4 shadow p-3 mb-5 bg-white rounded" style="width: 18rem;">
+            <img class="card-img-top mb-5" src="{{ menu.imageMakanan.url }}" alt="Card image cap">
+            <div class="card-body">
+              <h5 class="card-title">{{ menu.namaMakanan }}</h5>
+              <p class="card-text">Rp. {{ menu.hargaMakanan }}</p>
+              <a href="#" class="btn btn-primary">Beli</a>
+            </div>
+        </div>
+    {% endfor %}
+    {% for menu in menuMinuman %}
+        <div class="card mr-5 mb-4 shadow p-3 mb-5 bg-white rounded" style="width: 18rem;">
+            <img class="card-img-top mb-5" src="{{ menu.imageMinuman.url }}" alt="Card image cap">
+            <div class="card-body">
+              <h5 class="card-title">{{ menu.namaMinuman }}</h5>
+              <p class="card-text">Rp. {{ menu.hargaMinuman }}</p>
+              <a href="#" class="btn btn-primary">Beli</a>
+            </div>
+        </div>
+    {% endfor %}
+    </div>  
+  <br><br>
+  <nav aria-label="Page navigation example">
+    <ul class="pagination justify-content-center">
+      <li class="page-item disabled">
+        <a class="page-link" href="#" tabindex="-1">Previous</a>
+      </li>
+      <li class="page-item"><a class="page-link" href="#">1</a></li>
+      <li class="page-item"><a class="page-link" href="#">2</a></li>
+      <li class="page-item"><a class="page-link" href="#">3</a></li>
+      <li class="page-item">
+        <a class="page-link" href="#">Next</a>
+      </li>
+    </ul>
+  </nav>
+</section>
+{% endblock %}
