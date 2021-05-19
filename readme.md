@@ -16,7 +16,7 @@
 * open your favorite browser and typing _localhost:8000_
 
 ### How to run with Docker
-* git clone git clone https://github.com/antheiz/WarungMakan-django.git
+* git clone https://github.com/antheiz/WarungMakan-django.git
 * cd WarungMakan-django
 * docker build --tag warungmakan:1.0
 * docker container create --name app1 -p 8000:8000 warungmakan:1.0
